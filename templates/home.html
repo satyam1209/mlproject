@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            width: 450px;
+            padding: 25px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Performance Prediction</h2>
+
+        <form action="/predict" method="POST">
+
+            <div class="input-group">
+                <label>Gender</label>
+                <select name="gender" required>
+                    <option value="">-- Select --</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Race / Ethnicity</label>
+                <select name="ethnicity" required>
+                    <option value="">-- Select --</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Parental Level of Education</label>
+                <select name="parental_level_of_education" required>
+                    <option value="">-- Select --</option>
+                    <option value="high school">High School</option>
+                    <option value="some college">Some College</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="master's degree">Master's Degree</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Lunch Type</label>
+                <select name="lunch" required>
+                    <option value="">-- Select --</option>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free / Reduced</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Test Preparation Course</label>
+                <select name="test_preparation_course" required>
+                    <option value="">-- Select --</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Reading Score</label>
+                <input type="number" name="reading_score" min="0" max="100" required>
+            </div>
+
+            <div class="input-group">
+                <label>Writing Score</label>
+                <input type="number" name="writing_score" min="0" max="100" required>
+            </div>
+
+            <button type="submit">Predict</button>
+
+        </form>
+    </div>
+    <h2>The prediction is {{results}}</h2>
+</body>
+</html>
