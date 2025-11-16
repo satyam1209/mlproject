@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
 from sklearn.neighbors import KNeighborsRegressor
-from xgboost import XGBRegressor
+# from xgboost import XGBRegressor
 from catboost import CatBoostRegressor
 from src.exception import CustomException
 from src.logger import logging
@@ -41,7 +41,7 @@ class ModelTrainer:
                         "GradientBoostingRegressor": GradientBoostingRegressor(),
                         "KNeighborsRegressor": KNeighborsRegressor(),
                         "SVR": SVR(),
-                        "XGBRegressor": XGBRegressor(),
+                        # "XGBRegressor": XGBRegressor(),
                         "CatBoostRegressor": CatBoostRegressor(verbose=False)
                     }
             report,trained_models = evaluate_model(X_train,X_test,y_train,y_test,models)
