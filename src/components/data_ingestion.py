@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
+from src.components.model_trainer import ModelTrainer,ModelTrainingConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -45,3 +46,6 @@ if __name__=='__main__':
     print(train_data_path,test_data_path)
     data_transformation = DataTransformation()
     train_arr,test_arr,preprocessing_obj_path = data_transformation.initiate_data_transformation(train_data_path,test_data_path)
+    model_trainer =ModelTrainer()
+    r2_score_best_model = model_trainer.initiate_model_training(train_arr,test_arr,preprocessing_obj_path)
+    print(r2_score_best_model)
