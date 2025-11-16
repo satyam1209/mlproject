@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
 from sklearn.neighbors import KNeighborsRegressor
 # from xgboost import XGBRegressor
-from catboost import CatBoostRegressor
+# from catboost import CatBoostRegressor
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object,evaluate_model
@@ -40,9 +40,9 @@ class ModelTrainer:
                         "RandomForestRegressor": RandomForestRegressor(),
                         "GradientBoostingRegressor": GradientBoostingRegressor(),
                         "KNeighborsRegressor": KNeighborsRegressor(),
-                        "SVR": SVR(),
+                        "SVR": SVR()
                         # "XGBRegressor": XGBRegressor(),
-                        "CatBoostRegressor": CatBoostRegressor(verbose=False)
+                        # "CatBoostRegressor": CatBoostRegressor(verbose=False)
                     }
             report,trained_models = evaluate_model(X_train,X_test,y_train,y_test,models)
             best_model_name=None
